@@ -1,0 +1,120 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse shadow">
+      <div class="xheader d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <button class="bg-transparent border-0" style="font-size: 25px;" type="button" (click)="toggleSidebar()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link  text-white d-inline-block" aria-current="page"  (click)="setActiveTab('dashboard'); " [ngClass]="{ active: activeTab === 'dashboard' }" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+              <i class="fa-solid fa-house"></i> <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white d-inline-block" aria-current="page" (click)="setActiveTab('link')" [ngClass]="{ active: activeTab === 'link' }" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+              <i class="fa-solid fa-link" style="margin-right: 13px; font-size: 15px; width: auto;" ></i> <span>Short Link</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white d-inline-block" aria-current="page" (click)="setActiveTab('qr')" [ngClass]="{ active: activeTab === 'qr' }" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+              <i class="fa-solid fa-qrcode" style="margin-right: 15px; font-size: 20px; width: auto;"></i> <span>QR Code</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <!-- Toggle Button for Sidebar -->
+        <a class="navbar-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars" style="color: rgb(37, 36, 36) !important; font-size:30px;"></i>
+        </a>
+
+        <input class="xform-control me-2 d-md-block" type="search" placeholder="Search" aria-label="Search">
+
+        <div class="dropdown">
+          <button class="border-0 bg-transparent" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-circle-user" style="font-size: 30px; color: rgb(44, 43, 43);"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow border-2" aria-labelledby="profileDropdown">
+            <li class="d-inline-block mr-1"><p class="dropdown-item mb-0" ><i class="fa-solid fa-user "></i>{{userInfo.name}}</p></li>
+            <li class="d-inline-block mr-1"><p class="dropdown-item mb-0" ><i class="fa-solid fa-envelope "></i>{{userInfo.email}}</p></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" (click)="logout()">Logout <span><i class="fa-solid fa-right-from-bracket"></i></span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Full Width Card Section -->
+      <div class="container mt-4" *ngIf="activeTab === 'dashboard'">
+        <div  *ngIf="loading">
+          <div class="preloader" >
+            <div class="spinner-border" role="status" style="color: rgb(255, 145, 2);">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!loading && !formattedLinks">
+          <div class="empty-container">
+            <div class="empty">
+              <div class="d-inline-block justify-content-center align-items-center">
+                <i class="fa-solid fa-ban" style="font-size: 60px; height: auto;"></i>
+                <h4 class="mt-2">No Links Found</h4>
+              </div>
+              <p>Create a short links <a href="">click here</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card shadow-sm" *ngFor="let data of formattedLinks">
+              <div class="row no-gutters flex-column flex-md-row">
+                <div class="col-12 col-md-4 d-flex justify-content-center align-items-center xcard-img">
+                  <img src="../../../assets/link-mngt-3.svg" class="" alt="Sample Image" height="40" width="40">
+                </div>
+                <div class="col-12 col-md-8 xcard-content">
+                  <div class="card-body">
+                    <p class="usertitle">{{ userInfo.name | uppercase }}</p>
+                    <a class="card-title" style="color: rgb(44, 43, 43);" href="{{data.redirectURL}}" target="_blank">{{data.redirectURL}}</a>
+                    <p class="card-text">
+                      <a href="{{data.redirectURL}}" style="text-decoration: none;">localhost:4200/{{data.shortId}}</a>
+                    </p>
+                    <div class="xcardpipe">
+                      <i class="fa-solid fa-chart-simple"></i><p class="d-inline-block" style="margin: 0 15px 0 10px;">{{data.visitHistory.length}}</p>
+                      <i class="fa-solid fa-calendar"></i><p class="d-inline-block" style="margin: 0 15px 0 10px;">{{data.formattedDate}}</p>
+                      <i class="fa-solid fa-tag"></i><p class="d-inline-block" style="margin: 0 15px 0 10px;">No tag</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+      <div class="container mt-4" *ngIf="activeTab === 'link'">
+        <h3  class="home-content"><b>Create new link</b></h3>
+        <h5 class="mt-3"><b>Paste a long URL</b></h5>
+        <input type="text" class="w-100 p-3 link-input"
+          placeholder="Example: http://super-long-link.com/shorten-it" />
+        <button class="button mt-3 border-0 p-3">
+          Create
+        </button>
+      </div>
+      <div class="container mt-4" *ngIf="activeTab === 'qr'">
+        <div class="align-items-center d-flex justify-content-center flex-column">
+          <img src="../../../assets/undraw_under_construction_-46-pa.svg" alt="" height="100" width="200"
+            class="img-fluid" />
+          <h3 class="mt-3"><b>Coming soon....</b></h3>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

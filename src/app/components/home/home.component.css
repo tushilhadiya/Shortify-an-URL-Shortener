@@ -1,0 +1,162 @@
+.container {
+  padding-top: 3rem !important;
+  padding-bottom: 2rem;
+}
+
+.box {
+  background-color: antiquewhite;
+  border-radius: 40px;
+  padding: 60px 0px;
+}
+
+.img-content img {
+  max-width: 90%;
+  height: auto;
+}
+
+.card-title {
+  font-size: 50px;
+}
+
+.card-text {
+  font-size: 20px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card-body{
+  margin-left: 5rem;
+}
+i{
+  line-height: 1.5;
+  padding-right: 12px;
+}
+
+.shorten-section{
+  margin-bottom: 5rem;
+}
+
+.nav-link {
+  display: flex;
+  font-size: 20px;
+  padding: 15px;
+  color: black;
+}
+
+.nav-link.active {
+  background-color: #ffffff;
+  color: rgb(78, 77, 77);
+  border: 2px solid rgb(177, 176, 176);
+  border-bottom: none;
+  border-radius: 12px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.link-input {
+  margin-top: 2px;
+  border: 1px solid rgb(177, 176, 176);
+  border-radius: 7px;
+}
+
+.button {
+  border-radius: 7px;
+}
+
+.home-content {
+  font-weight: 500;
+  font-size: 40px;
+}
+
+
+.card-section {
+  margin-bottom: 6rem;
+}
+
+.xcard {
+  width: 100%;
+  max-width: 75%;
+  border: 1px solid #090909;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.xcard-body {
+  padding: 15px;
+  
+}
+
+.xcard-title {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.xcard-text {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  
+}
+.xcard-text2{
+  font-weight: 500;
+}
+.xcard-list {
+  padding-left: 1.5rem; 
+  margin-top: 1rem;
+  list-style-type: none;
+  margin-left:-23px;
+}
+.xcard-list-item {
+  margin-bottom: 0.5rem; 
+  padding: 6px 0 6px 0;
+}
+.xcard-list-item i {
+  color: green;
+  margin-right: 0.5rem; 
+  flex-shrink: 0; 
+}
+.xcard-list-text{
+  text-align: justify;
+  flex-grow: 1;
+
+}
+@media (max-width: 992px) {
+  .xcard{
+    max-width: 100%;
+  }
+}
+@media (max-width: 767.98px) {
+  .box{
+    border-radius: 30px;
+  }
+  .content img {
+    margin-bottom: 15px;
+  }
+
+  .card-title {
+    font-size: 35px;
+  }
+
+  .card-text {
+    font-size: 16px;
+  }
+  .xcard{
+    max-width: 100%;
+  }
+}
+
+@media (max-width : 576px) {
+  .box {
+    border-radius: 17px;
+    padding: 40px 20px;
+  }
+
+  .home-content {
+    font-size: 30px;
+  }
+  .card-body{
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+}

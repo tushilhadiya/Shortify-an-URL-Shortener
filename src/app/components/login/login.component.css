@@ -1,0 +1,55 @@
+.seprater::before{
+    content: " ";
+    height: .0625rem;
+    width: 100%;
+    background: #dbe0eb;
+    margin: auto 0;
+}
+.seprater::after{
+    content: " ";
+    height: .0625rem;
+    width: 100%;
+    background: #dbe0eb;
+    margin: auto 0;
+}
+h1{
+    color: orange; 
+    font-size: 45px;
+    text-decoration: none;
+  }
+img{
+    padding: 30px;
+}
+/* Base styles for all screens */
+.card-body {
+    padding: 3rem; /* Default padding */
+  }
+  
+  /* Adjustments for small screens */
+  @media (max-width: 576px) {
+    img{
+        padding:15px 60px 15px 60px;
+        
+    }
+    .card-body {
+      padding: 0.8rem; /* Reduced padding for small screens */
+    }
+    
+    .card-body .form-floating {
+      margin-bottom: 1rem; /* Adjust spacing between form elements */
+    }
+    
+    .card-body h1 {
+      font-size: 2.5rem; /* Reduce font size for smaller screens */
+    }
+    
+    .card-body h4 {
+      margin-bottom: 5px;
+      font-size: 1.25rem; /* Reduce font size for smaller screens */
+    }
+    
+    .card-body .btn {
+      padding: 0.5rem 1rem; /* Adjust button padding */
+    }
+  }
+  

@@ -1,0 +1,20 @@
+
+footer {
+    
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+
+    background-color: #1f1a14;
+    color: #E8DFCA;
+}
+.icon{
+    margin: auto;
+}
+
+p{
+    font-size: 13px;
+}
+a{
+    text-decoration: none;
+}

@@ -1,0 +1,65 @@
+/* .topbar{
+    max-width: 1160px !important;
+} */
+.burger{
+    border: none;
+    color: white;
+}
+.topheader{
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    z-index: 100;
+    background-color: white;
+    color: #1f1a14;
+    transition: box-shadow 0.3s ease;
+}
+.shadow-header {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow style */
+  }
+  .navbar-collapse{
+    padding-bottom: 10px;
+  }
+  .nav-item{
+    margin: 5px;
+  }
+
+.nav-link {
+    color: #1f1a14; /* Default link color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px;
+  }
+  
+  /* Style for the active link */
+  .nav-link.active {
+    color: #1f1a14; /* Same color for the active link */
+    font-weight: bold; /* Bold font for the active link */
+    text-decoration: none; /* Ensure no underline for active link */
+  }
+  
+  /* Hover effect for the links */
+  .nav-link:hover {
+    color: #1f1a14; /* Change color on hover */
+  }
+
+  .button{
+    background-color: #1f1a14;
+    color: aliceblue;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+  }
+h1{
+  color: orange; 
+  font-size: 45px;
+}
+  @media(max-width:576px){
+    h1{
+      font-size: 40px;
+    }
+    
+  }
+  
+ 
+  
+  

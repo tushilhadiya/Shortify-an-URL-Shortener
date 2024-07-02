@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    font-family: 'Inter',sans-serif;
+    font-style: normal;
+    font-optical-sizing: auto;
+    font-variation-settings:"slnt" 0;
+}
+.button{
+    background-color: #1f1a14;
+    color: aliceblue;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+  }
+  .button:hover{
+    background-color: #393938;
+  }
+  @media (max-width: 767.98px){
+    .button{
+        padding: 6px 10px;
+        font-size:15px ;
+    }
+  }
